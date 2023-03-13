@@ -21,6 +21,7 @@ async def parse_zoom_links(playwright, syllabus):
     await page.type("#pseudonym_session_unique_id", os.getenv("EMAIL"))
     await page.click("#pseudonym_session_password")
     await page.type("#pseudonym_session_password", os.getenv("PASSWORD"))
+    await page.pause()
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
