@@ -1,4 +1,5 @@
 import os
+import time
 
 import asyncio
 from bs4 import BeautifulSoup
@@ -23,6 +24,7 @@ async def parse_zoom_links(playwright, syllabus):
     await page.type("#pseudonym_session_password", os.getenv("PASSWORD"))
     await page.get_by_role("button", name="Log In").click()
     # await page.pause()
+    time.sleep(5)
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
