@@ -1,5 +1,6 @@
 import os
 import time
+import re
 
 import asyncio
 from bs4 import BeautifulSoup
