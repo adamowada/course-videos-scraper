@@ -6,7 +6,7 @@ import re
 
 async def parse_zoom_links(playwright, syllabus):
     chromium = playwright.chromium  # or "firefox" or "webkit".
-    browser = await chromium.launch()
+    browser = await chromium.launch(headless=False)
     page = await browser.new_page()
 
     # Get page content
