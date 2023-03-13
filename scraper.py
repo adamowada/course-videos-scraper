@@ -22,7 +22,7 @@ async def parse_zoom_links(playwright, syllabus):
     await page.click("#pseudonym_session_password")
     await page.type("#pseudonym_session_password", os.getenv("PASSWORD"))
     await page.pause()
-    await page.getByRole('button', { name: 'Sign in' }).click()
+    await page.getByRole("button", name="Log In").click()
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
