@@ -12,7 +12,7 @@ async def parse_zoom_links(playwright, syllabus):
     # Login and get page content
     await page.set_viewport_size({"width": 640, "height": 480})
     await page.goto(syllabus)
-    await page.cli
+    await page.get_by_role().click(delay=2000)
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
