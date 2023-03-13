@@ -11,6 +11,7 @@ async def parse_zoom_links(playwright, syllabus):
 
     # Get page content
     await page.goto(syllabus)
+    
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
