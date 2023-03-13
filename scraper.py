@@ -1,8 +1,12 @@
+import os
+
 import asyncio
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from playwright.async_api import async_playwright
-import re
+
+
+load_dotenv()
 
 
 async def parse_zoom_links(playwright, syllabus):
@@ -14,7 +18,7 @@ async def parse_zoom_links(playwright, syllabus):
     await page.set_viewport_size({"width": 640, "height": 480})
     await page.goto(syllabus)
     await page.click("#pseudonym_session_unique_id")
-    await page.type("#pseudonym_session_unique_id", "test")
+    await page.type("#pseudonym_session_unique_id", os.getenv("EMAIL"))
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
