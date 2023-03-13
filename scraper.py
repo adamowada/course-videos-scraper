@@ -15,8 +15,8 @@ async def parse_zoom_links(playwright, syllabus):
 
     # Process extracted content with BeautifulSoup
     soup = BeautifulSoup(content, features="html.parser")
-
-    return content
+    links = [element for element in soup.find_all("a")]
+    return links
 
 
 async def main():
