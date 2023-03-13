@@ -9,9 +9,10 @@ async def parse_zoom_links(playwright, syllabus):
     browser = await chromium.launch(headless=False)
     page = await browser.new_page()
 
-    # Get page content
+    # Login and get page content
     await page.goto(syllabus)
-    
+    await page.set_viewport_size({"width": 1200, "height": 1822})
+
     content = await page.content()
 
     # Process extracted content with BeautifulSoup
